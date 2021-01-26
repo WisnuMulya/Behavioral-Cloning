@@ -85,9 +85,9 @@ def sample_generator(samples, batch_size=32):
 # Create the model
 def build_model():
     """
-    Build a model with pretrained AlexNet.
+    Build a model with pretrained GoogLeNet.
     """
-    # Instantiate AlexNet
+    # Instantiate GoogLeNet
     inception = InceptionV3(weights='imagenet', include_top=False, input_shape=(139,139,3))
 
     # Create preprocessing layers
@@ -128,4 +128,4 @@ model.fit_generator(train_generator,
                     validation_data=validation_generator,
                     validation_steps=ceil(len(validation_samples)/batch_size),
                     callbacks=[checkpoint, stopper],
-                    epochs=1)
+                    epochs=10)
