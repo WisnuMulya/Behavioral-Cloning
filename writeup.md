@@ -91,6 +91,8 @@ The overall approach in the working of this project is inspired from the approac
 
 8. Testing the model in the Udacity workspace simulator:
 
+	Running `drive.py` in the Udacity workspace had not worked initially. I needed to pass the tensorflow 'tf' variable to the loaded model as at `line 123` of `drive.py`. Also, the `tensorflow-gpu` needed to be updated to version 1.4 to execute the file successfully.
+
    The model resulted from the training enabled the car to successfully drive autonomously in Map 1 of the Udacity workspace simulator, as seen under the file `run1.mp4`. However, since the Map 2 of the Udacity workspace simulator is of the version 2 (different from the Map 2 of the version 1, of the the training dataset was obtained from), the car did horrible. Further gathering sample from the Map 2 of the version 2 simulator would alleviate this issue and might improve the chance of the car being able to drive autonomously.
 
 #### 2. Final Model Architecture
@@ -125,7 +127,7 @@ Non-trainable params: 34,432
 
 As explained in prior section, I used transfer learning by using GoogLeNet (`InceptionV3`) with pretrained weights of the imagenet and set them to be trainable. Besides dropping the end layer, I added some input layers for preprocessing the images and some end layers to output a single steering value.
 
-Also, as the layers in the GoogLeNet is many, I skipped visualizing them in this version of the project.
+Also, as the layers in the GoogLeNet are many, I skipped visualizing them in this version of the project.
 
 #### 3. Creation of the Training Set & Training Process
 
